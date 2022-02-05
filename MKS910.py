@@ -66,10 +66,11 @@ if __name__ == "__main__":
     mks = MKS910("COM3");
     mks.open()
     mks.identifyOn()
-    now = datetime.now()
-    for i in range(100):
-        print(f"{datetime.now()-now} - {mks.read()}")
-        now = datetime.now()
+    sleep(20)
+    # now = datetime.now()
+    # for i in range(100):
+    #     print(f"{datetime.now()-now} - {mks.read()}")
+    #     now = datetime.now()
     mks.identifyOff()
     mks.close()
 
