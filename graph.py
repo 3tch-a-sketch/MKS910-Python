@@ -20,7 +20,14 @@ try:
         ax1.clear()
         ax1.plot(xar,yar)
 
-    ani = animation.FuncAnimation(fig, animate, interval=500)
+    def animateRolling(i):
+        xar.append(time.time())
+        yar.append(mks.read())
+
+        ax1.clear()
+        ax1.plot(xar[-100:],yar[-100:])
+
+    ani = animation.FuncAnimation(fig, animateRolling, interval=50)
     plt.show()
 except KeyboardInterrupt:
     mks.close()
